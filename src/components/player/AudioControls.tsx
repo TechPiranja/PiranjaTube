@@ -1,10 +1,9 @@
 import { Pause, Play, Volume2 } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
-import cover from "../../assets/cover.mp3";
 import "./style.css";
 import "./input.css";
 
-export default function AudioControls() {
+export default function AudioControls({ audio }: { audio: string }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -75,7 +74,7 @@ export default function AudioControls() {
   return (
     <div className="audio-controls">
       {/* Audio Player */}
-      <audio ref={audioRef} src={cover} className="hidden" />
+      <audio ref={audioRef} src={audio} className="hidden" />
 
       {/* Progress Bar */}
       <div className="progress-container">

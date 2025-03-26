@@ -1,7 +1,16 @@
-import coverPlaceholder from "../../assets/Ithaca_Saga.webp";
 import AudioControls from "./AudioControls";
 
-export default function Player() {
+export default function Player({
+  image,
+  title,
+  artist,
+  song,
+}: {
+  image: string;
+  title: string;
+  artist: string;
+  song: string;
+}) {
   return (
     <div
       style={{
@@ -13,7 +22,7 @@ export default function Player() {
       }}
     >
       <img
-        src={coverPlaceholder}
+        src={image}
         className="logo"
         alt="Cover Image"
         style={{ width: "100%", height: "100%", borderRadius: 20, padding: 0 }}
@@ -27,13 +36,11 @@ export default function Player() {
             margin: 0,
           }}
         >
-          Will you fall in love with me again
+          {title}
         </p>
-        <p style={{ fontSize: 14, margin: 0, color: "#777" }}>
-          EPIC: The Musical
-        </p>
+        <p style={{ fontSize: 14, margin: 0, color: "#777" }}>{artist}</p>
       </div>
-      <AudioControls />
+      <AudioControls audio={song} />
     </div>
   );
 }
