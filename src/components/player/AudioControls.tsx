@@ -1,4 +1,4 @@
-import { Pause, Play, Volume2 } from "lucide-react";
+import { Pause, Play } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import "./style.css";
 import "./input.css";
@@ -7,7 +7,7 @@ export default function AudioControls({ audio }: { audio: string }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(1);
+  // const [volume, setVolume] = useState(1);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -57,13 +57,13 @@ export default function AudioControls({ audio }: { audio: string }) {
     }
   };
 
-  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newVolume = Number(e.target.value);
-    if (audioRef.current) {
-      audioRef.current.volume = newVolume;
-      setVolume(newVolume);
-    }
-  };
+  // const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const newVolume = Number(e.target.value);
+  //   if (audioRef.current) {
+  //     audioRef.current.volume = newVolume;
+  //     setVolume(newVolume);
+  //   }
+  // };
 
   const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
