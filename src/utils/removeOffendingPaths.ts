@@ -1,7 +1,7 @@
 export function removeOffendingPaths() {
   // Simple Safari check
-  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-  if (!isSafari) return;
+  const isNotChromeOrOpera = !/chrome|opera/i.test(navigator.userAgent);
+  if (!isNotChromeOrOpera) return;
 
   // Delay to ensure the SVG is rendered
   setTimeout(() => {
