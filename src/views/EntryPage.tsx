@@ -2,6 +2,8 @@ import Lottie from "react-lottie";
 import animationData from "../assets/animation.json";
 import { Play } from "lucide-react";
 import "./EntryPage.css";
+import { useEffect } from "react";
+import { removeOffendingPaths } from "../utils/removeOffendingPaths";
 
 const defaultOptions = {
   loop: true,
@@ -17,6 +19,10 @@ export default function EntryPage({
 }: {
   onEntry: (value: boolean) => void;
 }) {
+  useEffect(() => {
+    removeOffendingPaths();
+  }, []);
+
   return (
     <div className="entry-container">
       <p className="entry-title">Piranja Tube</p>
