@@ -1,34 +1,37 @@
 import "./App.css";
-import Player from "./components/player/Player";
-
-import coverPlaceholder from "./assets/Ithaca_Saga.webp";
-import epicSong from "./assets/cover.mp3";
-import goddessImage from "./assets/goddess.jpg";
-import goddess from "./assets/goddess.mp3";
+import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
+import EntryPage from "./views/EntryPage";
+import MusicPlayerPage from "./views/MusicPlayerPage";
 
 function App() {
+  const [showMain, setShowMain] = useState(false);
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: 30,
-        width: "100%",
-      }}
-    >
-      {/* <h1>PiranjaTube</h1> */}
-      <Player
-        image={coverPlaceholder}
-        title="Will you fall in love with me again"
-        artist="EPIC: The Musical"
-        song={epicSong}
-      />
-      <Player
-        image={goddessImage}
-        title="Goddess"
-        artist="Laufey"
-        song={goddess}
-      />
+    <div>
+      <AnimatePresence mode="wait">
+        {showMain ? (
+          <motion.div
+            key="main"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <MusicPlayerPage />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="entry"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <EntryPage onEntry={setShowMain} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

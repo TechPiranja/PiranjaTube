@@ -1,14 +1,19 @@
 import { Pause, Play } from "lucide-react";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import "./input.css";
 
-export default function AudioControls({ audio }: { audio: string }) {
+export default function AudioControls({
+  audio,
+  audioRef,
+}: {
+  audio: string;
+  audioRef: React.RefObject<HTMLAudioElement | null>;
+}) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   // const [volume, setVolume] = useState(1);
-  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     if (audioRef.current) {

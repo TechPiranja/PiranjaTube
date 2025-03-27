@@ -5,7 +5,7 @@ input[type="range"] {
 }
 
 input[type="range"] {
-  color: #f7999e;
+  color: #8273b4;
   --thumb-height: 1.125em;
   --track-height: 0.125em;
   --track-color: rgba(0, 0, 0, 0.2);
@@ -32,7 +32,7 @@ input[type="range"].win10-thumb {
   }
 
   input[type="range"] {
-    color: #f7999e;
+    color: #8273b4;
     --track-color: rgba(255, 255, 255, 0.1);
   }
 

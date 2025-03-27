@@ -41,7 +41,7 @@
 .play-button {
   width: 50px;
   height: 50px;
-  background: #f7999e;
+  background: #8273b4;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -78,7 +78,7 @@
 .volume-icon {
   width: 30px;
   height: 30px;
-  color: #ff8b91;
+  color: #8273b4;
 }
 
 .volume-bar {

@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import AudioControls from "./AudioControls";
 
 export default function Player({
@@ -11,13 +12,15 @@ export default function Player({
   artist: string;
   song: string;
 }) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+
   return (
     <div
       style={{
-        background: "#222",
-        boxShadow: "10px 10px 30px rgba(0, 0, 0, 0.5)",
+        background: "#1D1927",
+        boxShadow: "0px 0px 30px rgba(0, 0, 0, 0.5)",
         padding: "20px 20px",
-        borderRadius: 20,
+        borderRadius: 10,
         width: 220,
       }}
     >
@@ -25,7 +28,7 @@ export default function Player({
         src={image}
         className="logo"
         alt="Cover Image"
-        style={{ width: "100%", height: "100%", borderRadius: 20, padding: 0 }}
+        style={{ width: "100%", height: "100%", borderRadius: 10, padding: 0 }}
       />
       <div style={{ padding: "15px 0" }}>
         <p
@@ -38,9 +41,10 @@ export default function Player({
         >
           {title}
         </p>
-        <p style={{ fontSize: 14, margin: 0, color: "#777" }}>{artist}</p>
+        <p style={{ fontSize: 14, margin: 0, color: "#645476" }}>{artist}</p>
       </div>
-      <AudioControls audio={song} />
+
+      <AudioControls audio={song} audioRef={audioRef} />
     </div>
   );
 }
